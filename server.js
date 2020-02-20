@@ -2,7 +2,7 @@ var micro = require("./lib/micro-express");
 var app = micro();
 
 app.get("/hello", function (req, res) {
-  res.send("Hello Micro Express :)");
+  res.send("Hello Micro Express " + req.params["name"]);
 });
 
 app.get("/bye", function (req, res) {
