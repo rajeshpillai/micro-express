@@ -2,19 +2,15 @@ var micro = require("./lib/micro-express");
 var app = micro();
 
 app.get("/hello", function (req, res) {
-  let message = "Hello Micro Express :)";
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Content-Length', message.length);
-  res.writeHead(200);
-  res.end(message);
+  res.send("Hello Micro Express :)");
 });
 
 app.get("/bye", function (req, res) {
-  let message = "Bye for now. See you agin :)";
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Content-Length', message.length);
-  res.writeHead(200);
-  res.end(message);
+  res.send("Bye for now. More work tomorrow!!");
+});
+
+app.get("/walkaround", function (req, res) {
+  res.redirect("/bye");
 });
 
 app.listen(3000);
