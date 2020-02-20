@@ -1,14 +1,5 @@
-var http = require('http');
+var micro = require("./lib/micro-express");
 
-const PORT = process.env.PORT || 3000;
-var server = http.createServer(function (req, res) {
-  var message = "Hello HTTP";
-  res.setHeader('Content-Type', 'text/plain');
-  res.setHeader('Content-Length', message.length);
-  res.writeHead(200);
-  res.end(message);
-});
+var app = micro();
 
-server.listen(PORT, () => {
-  console.log(`server listening on port ${PORT}`);
-});
+app.listen(3000);
