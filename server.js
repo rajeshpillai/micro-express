@@ -1,9 +1,14 @@
 var micro = require("./lib/micro-express");
 var app = micro();
 
+// Add dynamic parameter
+app.get("/ping/:ip", function (req, res) {
+  res.send(`Pinging ${req.params.ip}`);
+});
+
 app.get("/hello", function (req, res) {
-  http://localhost:3000/hello?user[name]=rajesh&user[city]=mumbai
-  res.send("Hello Micro Express " + req.params["user"]["name"] + " " + req.params["user"]["city"]);
+  // http://localhost:3000/hello?user[name]=rajesh&user[city]=mumbai
+  res.send("Hello Micro Express " + req.qs["user"]["name"] + " " + req.qs["user"]["city"]);
 });
 
 app.get("/bye", function (req, res) {
